@@ -226,3 +226,10 @@ function cambiarEstilos() {
 
     }
 }
+/**
+ * Ejercicio Eventos
+ */
+window.onload = function() {
+    document.getElementById('idh1').onmouseover = eliminarFila;
+    document.getElementById('idp').ondblclick = cambiarEstilos;
+}
