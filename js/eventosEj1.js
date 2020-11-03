@@ -1,74 +1,4 @@
 /**
- * Ejercicio 1
- */
-/** A continuación se incluyen las distintas sentencias a ejecutar en la consola 
- * para llevar a cabo el ejercicio
- */
-//Recupera el elemento con id “apellido1” (dos opciones)
-document.getElementById("apellido1");
-document.getElementsByTagName("input")[1];
-
-//Recupera todos los párrafos de una vez
-document.getElementsByTagName("p");
-
-//Recupera, de una sola vez, todos los párrafos del div con id “seccionTercera”.
-document.querySelectorAll("#seccionTercera *"); //Recupera todos los nodos que sean hijos del elemento identificado por seccionTercera
-
-//Recupera todos los elementos de tipo input.
-document.getElementsByTagName("input");
-
-//Recupera los elementos de tipo input con nombre “sexo”.
-document.getElementsByName("sexo");
-
-//Recupera los elementos de la lista de la clase “par”.
-document.querySelectorAll("li.par");
-document.getElementsByClassName("par"); //Si se supiera que no hay elementos de otro tipo con esa misma clase asignada
-/**
- * Ejercico 2
- */
-/** A continuación se incluyen las distintas sentencias a ejecutar en la consola 
- * para llevar a cabo el ejercicio
- */
-//Recupera el primer párrafo que hay dentro del div "seccionPrimera".
-let nodoPadre = document.getElementById("seccionPrimera");
-let nodoPrimerHijo = nodoPadre.firstElementChild;
-
-//Recupera el tercer párrafo del div anterior.
-let tercerHijo = (nodoPadre.children)[2];
-
-//El último elemento de la lista.
-let lista = document.getElementsByTagName("ul")[0];
-let ultimaFila = lista.lastElementChild;
-
-//La label del input nombre.
-let nodoInput = document.getElementById("nombre");
-let labelInput = nodoInput.previousElementSibling;
-let valorLabel = labelInput.firstChild; //devuelve el contenido de la label, ya que su primer hijo es un nodo de tipo texto
-/**
- * Ejercicio 3
- */
-/**
- * Soluciones a todos los puntos del ejercicio 3.
- * Para que funcione el partado de las funciones habría que comentar las líneas 
- * de los ejercicios que se prueban por consola
- */
-
-//Recupera el innerHTML del elemento ul y el textContent de dicha etiqueta
-let contenido = (document.getElementsByTagName("ul"))[0].innerHTML;
-let contenidoTexto = (document.getElementsByTagName("ul"))[0].textContent;
-/*contenido contendrá todo lo que hay entre <ul> y </ul>, mientras que 
-    contenidoTexto contendrá solo los textos de la lista.
-*/
-
-//Recupera el valor del primero input radio de sexo.
-let nodoRadio1 = (document.getElementsByName("sexo"))[0];
-let valor = nodoRadio1.value;
-
-//Busca como recuperar el valor del sexo que está seleccionado.
-let formulario = document.getElementsByTagName("form")[0];
-let sexoSeleccionado = formulario.sexo.value; //Otra forma sería recuperando todos los elementos de nombre sexo y recorrerlos para ver cual tiene el atributo checked
-
-/**
  * Las funciones que se detallan a continuación son las que irían en el documento trabajarConDom.js
  */
 function aceptar() {
@@ -227,9 +157,32 @@ function cambiarEstilos() {
     }
 }
 /**
- * Ejercicio Eventos
+ * Ejercicio Eventos 1
  */
 window.onload = function() {
     document.getElementById('idh1').onmouseover = eliminarFila;
     document.getElementById('idp').ondblclick = cambiarEstilos;
+    document.getElementById('idh2').onclick = invisibilizarParrafos;
+    document.getElementById('idParrafosNormal').onclick = cambiarPosicionParrafo;
+    document.getElementById('idLista').onclick = clonarDivLista;
+    document.getElementById('idForm').onmouseover = asignarAtributoNombre;
+    document.getElementById('idLabel').onmouseover = eliminarAtributoName;
+    document.getElementById('buttomAceptar').onclick =  aceptar;
+    document.getElementById('buttomCancelar').onclick = cancelar;
+    document.getElementById('idSeccion3').onclick = insertarEncabezadoH2;
+}
+/**
+ * Ejercicio Eventos 2
+ */
+window.onload = function() {
+    document.getElementById('idh1').addEventListener('onmouseover',eliminarFila,false);
+    document.getElementById('idp').addEventListener('ondblclick',cambiarEstilos,false);
+    document.getElementById('idh2').addEventListener('onclick',invisibilizarParrafos,false);
+    document.getElementById('idParrafosNormal').addEventListener('onclick',cambiarPosicionParrafo,false);
+    document.getElementById('idLista').addEventListener('onclick',clonarDivLista,false);
+    document.getElementById('idForm').addEventListener('onmouseover',asignarAtributoNombre,false);
+    document.getElementById('idLabel').addEventListener('onmouseover',eliminarAtributoName,false);
+    document.getElementById('buttomAceptar').addEventListener('onclick',aceptar,false);
+    document.getElementById('buttomCancelar').addEventListener('onclick',cancelar,false);
+    document.getElementById('idSeccion3').addEventListener('onclick',insertarEncabezadoH2,false);
 }
