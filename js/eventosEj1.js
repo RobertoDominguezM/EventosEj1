@@ -4,6 +4,7 @@
 function aceptar() {
     let nodoNombre = document.getElementById("nombre");
     nodoNombre.focus();
+    
 }
 
 function cancelar() {
@@ -158,7 +159,7 @@ function cambiarEstilos() {
 }
 /**
  * Ejercicio Eventos 1
- */
+ 
 window.onload = function() {
     document.getElementById('idh1').onmouseover = eliminarFila;
     document.getElementById('idp').ondblclick = cambiarEstilos;
@@ -167,22 +168,41 @@ window.onload = function() {
     document.getElementById('idLista').onclick = clonarDivLista;
     document.getElementById('idForm').onmouseover = asignarAtributoNombre;
     document.getElementById('idLabel').onmouseover = eliminarAtributoName;
-    document.getElementById('buttomAceptar').onclick =  aceptar;
+    document.getElementById('buttomAceptar').onclick = aceptar;
     document.getElementById('buttomCancelar').onclick = cancelar;
     document.getElementById('idSeccion3').onclick = insertarEncabezadoH2;
 }
+*/
+
 /**
  * Ejercicio Eventos 2
  */
 window.onload = function() {
-    document.getElementById('idh1').addEventListener('onmouseover',eliminarFila,false);
-    document.getElementById('idp').addEventListener('ondblclick',cambiarEstilos,false);
-    document.getElementById('idh2').addEventListener('onclick',invisibilizarParrafos,false);
-    document.getElementById('idParrafosNormal').addEventListener('onclick',cambiarPosicionParrafo,false);
-    document.getElementById('idLista').addEventListener('onclick',clonarDivLista,false);
-    document.getElementById('idForm').addEventListener('onmouseover',asignarAtributoNombre,false);
-    document.getElementById('idLabel').addEventListener('onmouseover',eliminarAtributoName,false);
-    document.getElementById('buttomAceptar').addEventListener('onclick',aceptar,false);
-    document.getElementById('buttomCancelar').addEventListener('onclick',cancelar,false);
-    document.getElementById('idSeccion3').addEventListener('onclick',insertarEncabezadoH2,false);
+    document.getElementById('idh1').addEventListener('mouseover',eliminarFila,false);
+    document.getElementById('idp').addEventListener('dblclick',cambiarEstilos,false);
+    document.getElementById('idh2').addEventListener('click',invisibilizarParrafos,false);
+    document.getElementById('idParrafosNormal').addEventListener('click',cambiarPosicionParrafo,false);
+    document.getElementById('idLista').addEventListener('click',clonarDivLista,false);
+    document.getElementById('idForm').addEventListener('mouseover',asignarAtributoNombre,false);
+    document.getElementById('idLabel').addEventListener('mouseover',eliminarAtributoName,false);
+    document.getElementById('buttomAceptar').addEventListener('click',aceptar,false);
+    document.getElementById('buttomCancelar').addEventListener('click',cancelar,false);
+    document.getElementById('idSeccion3').addEventListener('click',insertarEncabezadoH2,false);
+    document.getElementById('idp').addEventListener('dblclick',cambiarColor,false);
+}
+
+function cambiarColor(){
+    let parrafo = document.getElementsByTagName("h1");
+    let elementoH1 = document.getElementById("idh1");
+
+    for (let i = 0; i < parrafo.length; i++) {
+        if ((i + 1) % 3 === 0) {
+            parrafo[i].classList = "destacado";
+        }
+    }
+
+    for (let j = 0; j < elementoH1.length; j++) {
+        elementoH1[j].style.color = "red";
+
+    }
 }
