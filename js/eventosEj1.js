@@ -206,3 +206,10 @@ function cambiarColor(){
 
     }
 }
+
+/**
+ * Ejercicio 3
+ */
+function crearNuevoElemento(){
+    var newDiv = document.createElement("div");
+}
